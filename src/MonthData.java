@@ -31,14 +31,15 @@ public class MonthData {
         for (int i = 0; i < days.length; i++) {
             if (days[i] >= goalByStepsPerDay) {
                 currentSeries++;
-            }
-            else if (days[i]<goalByStepsPerDay) {
                 if (currentSeries > finalSeries) {
                     finalSeries = currentSeries;
-                    currentSeries = 0;
                 }
             }
-        }
-        return finalSeries;
+
+            else if (days[i]<goalByStepsPerDay) {
+                                    currentSeries = 0;
+                }
+            }
+                return finalSeries;
     }
 }

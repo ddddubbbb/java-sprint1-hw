@@ -4,6 +4,7 @@ public class StepTracker {
     String[] monthName = {"Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"};
     Scanner scanner;
     MonthData[] monthToData = new MonthData[12];
+    Converter converter = new Converter();
 
     int goalByStepsPerDay = 10000;
     StepTracker(Scanner scan) {
@@ -13,17 +14,11 @@ public class StepTracker {
             monthToData[i] = new MonthData();
         }
     }
-    Converter converter = new Converter();
-    void addNewNumberStepsPerDay() {
-        System.out.println("Введите номер месяца (от 1 до 12)");
+       void addNewNumberStepsPerDay() {
+        System.out.println("Введите номер месяца");
         int m = scanner.nextInt();
-        if (m>12){
-            System.out.println("Неверное значение! Максимальное значение: 12.");
-            return;
-        }
-
-        else if (m<1){
-            System.out.println("Неверное значение! Минимальное значение: 1.");
+        if  (m < 1 || m > 12) {
+            System.out.println("Неверное значение! Введите цифру от 1 до 12");
             return;
         }
 
@@ -52,12 +47,8 @@ public class StepTracker {
         else {
             System.out.println("Данные сохранены! Месяц: "+ monthName[m-1]+ "; день: " + d + "; шаги: " + newSteps);
         }
-
         MonthData monthData = monthToData[m-1];
-        // Получение соответствующего объекта MonthData из массива monthToData
-        monthData.days[d-1] = newSteps;// Сохранение полученных данных.
-        //Для этого из массива monthToData получите уже созданный объект класса MonthData
-
+        monthData.days[d-1] = newSteps;
     }
 
     void changeStepGoal(){
@@ -71,14 +62,11 @@ public class StepTracker {
             System.out.println("Неверное значение: цель всегда больше ноля!");
             return;
         }
-        else {
-            System.out.println("Готово! Новое значение цели шагов в день: " + goal);
-            goalByStepsPerDay = goal;
-        }
+        System.out.println("Готово! Новое значение цели шагов в день: " + goal);
+        goalByStepsPerDay = goal;
     }
 
     void printStatistic() {
-        System.out.println("Введите число месяца");
         System.out.println("Введите номер месяца (от 1 до 12)");
         int m = scanner.nextInt();
 

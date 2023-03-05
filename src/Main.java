@@ -10,14 +10,14 @@ public class Main {
         while (true) {
             printMenu();
             int command = scanner.nextInt();
-            if (command == 1) {//Смотреть статистику за месяц
+            if (command == 1) {
                 stepTracker.printStatistic();
             }
-            else if (command == 2) {//Ввести шаги за день"
+            else if (command == 2) {
                 stepTracker.addNewNumberStepsPerDay();
             }
             else if (command == 3) {
-                stepTracker.changeStepGoal();//Изменить цель шагов в день goalByStepsPerDay
+                stepTracker.changeStepGoal();
             }
             else if (command == 0) {
                 System.out.println("До свидания!");
