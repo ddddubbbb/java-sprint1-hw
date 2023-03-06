@@ -22,31 +22,26 @@ public class StepTracker {
             return;
         }
 
-        else {
-            System.out.println("Вы выбрали: " + monthName[m-1]);
-        }
-        System.out.println("Введите номер дня (от 1 до 30)");
+        System.out.println("Вы выбрали: " + monthName[m-1]);
+
+        System.out.println("Введите номер дня");
         int d = scanner.nextInt();
-        if (d>30){
-            System.out.println("Неверное значение! Максимальное значение: 30.");
+        if (d < 1 || d > 30){
+            System.out.println("Неверное значение! Введите цифру от 1 до 30");
+            return;
         }
 
-        else if (d<1) {
-            System.out.println("Неверное значение! Минимальное значение: 1.");
-        }
+        System.out.println("Вы выбрали месяц: " + monthName[m-1]+ "; день: "+ d);
 
-        else {
-            System.out.println("Вы выбрали месяц: " + monthName[m-1]+ "; день: "+ d);
-        }
         System.out.println("Введите количество шагов");
         int newSteps= scanner.nextInt();
         if (newSteps<0){
-            System.out.println("Неверное значение! минимальное значение = 0.");
+            System.out.println("Неверное значение! минимальное значение = 0");
             return;
         }
-        else {
-            System.out.println("Данные сохранены! Месяц: "+ monthName[m-1]+ "; день: " + d + "; шаги: " + newSteps);
-        }
+
+        System.out.println("Данные сохранены! Месяц: "+ monthName[m-1]+ "; день: " + d + "; шаги: " + newSteps);
+
         MonthData monthData = monthToData[m-1];
         monthData.days[d-1] = newSteps;
     }
@@ -54,12 +49,8 @@ public class StepTracker {
     void changeStepGoal(){
         System.out.println("Введите новое значение цели шагов в день:");
         int goal = scanner.nextInt();
-        if (goal == 0){
-            System.out.println("Неверное значение: цель - это не ноль!");
-            return;
-        }
-        else if (goal<0) {
-            System.out.println("Неверное значение: цель всегда больше ноля!");
+        if (goal <= 0){
+            System.out.println("Неверное значение: цель - больше, чем ноль!");
             return;
         }
         System.out.println("Готово! Новое значение цели шагов в день: " + goal);
@@ -67,20 +58,15 @@ public class StepTracker {
     }
 
     void printStatistic() {
-        System.out.println("Введите номер месяца (от 1 до 12)");
+        System.out.println("Введите номер месяца");
         int m = scanner.nextInt();
 
-        if (m>12){
-            System.out.println("Неверное значение! Максимальное значение: 12");
+        if  (m < 1 || m > 12) {
+            System.out.println("Неверное значение! Введите цифру от 1 до 12");
             return;
         }
-        else if (m<1){
-            System.out.println("Неверное значение! Минимальное значение: 1");
-            return;
-        }
-        else {
-            System.out.println("Вы выбрали: " + monthName[m-1]);
-        }
+        System.out.println("Вы выбрали: " + monthName[m-1]);
+
         MonthData monthData = monthToData[m-1];
 
         int sumSteps = monthData.sumStepsFromMonth();

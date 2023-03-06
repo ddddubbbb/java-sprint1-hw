@@ -4,8 +4,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         StepTracker stepTracker = new StepTracker(scanner);
-        Converter converter = new Converter();
-        MonthData  monthData = new MonthData();
 
         while (true) {
             printMenu();
@@ -30,7 +28,7 @@ public class Main {
     }
     public static void printMenu() {
         System.out.println();
-        System.out.println("Программа `Счетчик шагов и калорий` v.1");
+        System.out.println("Программа `Счетчик шагов и калорий` v.1.3");
         System.out.println();
         System.out.println("     =Что вы хотите сделать?=");
         System.out.println();
