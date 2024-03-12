@@ -3,7 +3,7 @@ public class MonthData {
 
     void printDaysAndStepsFromMonth() {
         for (int i = 0; i < days.length; i++) {
-            System.out.println((i+1) + " день: " + days[i] + " шагов");
+            System.out.println((i + 1) + " день: " + days[i] + " шагов");
         }
     }
 
@@ -34,12 +34,10 @@ public class MonthData {
                 if (currentSeries > finalSeries) {
                     finalSeries = currentSeries;
                 }
-            }
-
-            else {
+            } else {
                 currentSeries = 0;
-                }
             }
-                return finalSeries;
+        }
+        return finalSeries;
     }
 }

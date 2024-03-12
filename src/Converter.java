@@ -6,7 +6,7 @@ public class Converter {
         return stepsToKm;
     }
 
-    int convertStepsToKilocalories( int steps){
+    int convertStepsToKilocalories(int steps) {
         int oneStep = 50;
         int stepsToKk = steps * oneStep / 1000;
         return stepsToKk;

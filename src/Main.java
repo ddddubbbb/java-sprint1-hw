@@ -10,22 +10,19 @@ public class Main {
             int command = scanner.nextInt();
             if (command == 1) {
                 stepTracker.printStatistic();
-            }
-            else if (command == 2) {
+            } else if (command == 2) {
                 stepTracker.addNewNumberStepsPerDay();
-            }
-            else if (command == 3) {
+            } else if (command == 3) {
                 stepTracker.changeStepGoal();
-            }
-            else if (command == 0) {
+            } else if (command == 0) {
                 System.out.println("До свидания!");
                 break;
-            }
-            else {
+            } else {
                 System.out.println("Извините, но такой команды нет, поробуйте снова!");
             }
         }
     }
+
     public static void printMenu() {
         System.out.println();
         System.out.println("Программа `Счетчик шагов и калорий` v.1.3");
